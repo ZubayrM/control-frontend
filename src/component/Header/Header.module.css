@@ -1,12 +1,14 @@
 .header {
     /*background-color: slategray;*/
-    background: linear-gradient(slategray, black);
-    color: white;
+    background-color: rgb(81,92,102) ;
+    color: rgb(205,216,228);
     justify-items: left;
+    box-shadow: 0 10px 20em rgb(81,92,102);
 
 }
 
 .h1{
     margin: 4px;
     padding-left: 10px;
+
 }

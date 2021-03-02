@@ -1,8 +1,11 @@
 import * as React from "react";
-import axios from "axios";
 import Detail from "./Detail";
 import style from "./Detail.module.css"
 import '../../../App.css'
+import DetailController from "../../../controller/DetailController";
+
+
+const detailController = DetailController
 
 export default class DetailList extends React.Component{
 
@@ -16,30 +19,28 @@ export default class DetailList extends React.Component{
             name: value.target.value
         })
     }
-    handleSubmit = value =>{
-        debugger
+    handleSubmit = () =>{
         const detail = {
             name: this.state.name
         };
-        axios.get("http://localhost:8082/detail/byName", {params:  {name: detail.name}} )
-                .then(res=> {
-                    const details = res.data;
-                    this.setState({details})
-                    debugger
-                })
-        debugger
+
+        if (detail.name.contains(Number)){
+            detailController.byCipher(detail.name).then(res=>{
+                const details = res.data;
+                this.setState({details})
+            })
+
+        }
+        else {
+            detailController.byName(detail.name).then(res=>{
+                const details = res.data;
+                this.setState({details})
+            })
+        }
+
+
+
     }
-
-    // componentDidMount() {
-    //     axios.get("http://localhost:8082/detail/byName", this.state.name)
-    //         .then(res=> {
-    //             const details = res.data;
-    //             this.setState({details})
-    //         })
-    // }
-
-
-
 
     render() {
         return(

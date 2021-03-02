@@ -1,5 +1,5 @@
 import React from 'react';
-import './EmployeeStyle.css'
+import './Employee.module.css'
 
 const Employee = (props) =>{
     return (

@@ -2,7 +2,7 @@ import React from "react";
 import {Route} from "react-router-dom";
 import General from "../Main/General/General";
 import Plan from "../Main/Plan/Plan";
-import Employees from "../Main/Employee/Employees";
+import EmployeeList from "../Main/Employee/EmployeeList";
 import Statistics from "../Main/Statistacs/Statistics";
 import DetailInfo from "./DetailInfo/DetailInfo";
 
@@ -11,8 +11,8 @@ const Aside = (props) => {
         <aside>
             <Route path='/main' render={() => <General />}/>
             <Route path='/plan' render={ () => <Plan />}/>
-            <Route path='/detail' render={ () => <DetailInfo />}/>
-            <Route path='/employee' render={ () => <Employees/>}/>
+            <Route path='/detail[]' render={ () => <DetailInfo />}/>
+            <Route path='/employee' render={ () => <EmployeeList/>}/>
             <Route path='/statistics' render={ () => <Statistics />}/>
         </aside>
     )

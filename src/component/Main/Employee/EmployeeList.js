@@ -2,7 +2,7 @@ import React from 'react';
 import './../../../App.css'
 import Employee from "./Employee";
 
-const Employees = (props) => {
+const EmployeeList = (props) => {
 
     // let employeesList = props.employees.map(e => <Employee name = {e.name} surName = {e.surName}/>)
     return (
@@ -13,4 +13,4 @@ const Employees = (props) => {
     )
 }
 
-export default Employees
+export default EmployeeList
