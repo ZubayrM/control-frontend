@@ -1,0 +1,37 @@
+header {
+    grid-area: h;
+    justify-items: left;
+}
+
+main {
+    grid-area: m;
+    justify-items: center;
+}
+
+footer {
+    grid-area: f;
+    justify-items: center;
+}
+
+nav {
+    grid-area: n;
+}
+
+aside{
+    grid-area: as;
+}
+
+
+.container{
+    display: grid;
+
+    grid-template-columns: 120px 300px auto ;
+    grid-template-rows: 50px auto 100px;
+    column-gap: 0;
+    row-gap: 0;
+    grid-template-areas:
+            "h h h h"
+            "n n n n"
+            "m m as as"
+            "f f f f ";
+}

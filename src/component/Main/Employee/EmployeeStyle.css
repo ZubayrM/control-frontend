@@ -1,0 +1,28 @@
+.name{
+    grid-area: n;
+}
+
+.surname{
+    grid-area: sn;
+}
+
+span {
+    margin: 1px;
+    padding: 4px;
+}
+
+.employee{
+    display: grid;
+    grid-template-columns: 100px 100px;
+    align-items: center;
+
+
+    column-gap: 2px;
+
+
+    border: 2px dashed dimgray;
+    margin: 2px;
+
+    grid-template-areas:
+            "n sn";
+}
