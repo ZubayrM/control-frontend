@@ -1,25 +1,25 @@
-import React,{ Component } from 'react';
-import s from "./Nav.module.css"
+import React from 'react';
 import '../../App.css'
+import './Nav.module.css'
 import {NavLink} from "react-router-dom";
 
 const Nav = () => {
     return (
         <nav>
             <div>
-                <NavLink to='/main' activeClassName={s.active}>Главгая</NavLink>
+                <NavLink to='/main' >Главная</NavLink>
             </div>
             <div>
-                <NavLink to='/plan' activeClassName={s.active}>План</NavLink>
+                <NavLink to='/plan'>План</NavLink>
             </div>
             <div>
-                <NavLink to='/detail' activeClassName={s.active}>Детали</NavLink>
+                <NavLink to='/detail'>Детали</NavLink>
             </div>
             <div>
-                <NavLink to='/employee' activeClassName={s.active}>Персонал</NavLink>
+                <NavLink to='/employee'>Персонал</NavLink>
             </div>
             <div>
-                <NavLink to='/statistics' activeClassName={s.active}>Статистика</NavLink>
+                <NavLink to='/statistics'>Статистика</NavLink>
             </div>
         </nav>
     )

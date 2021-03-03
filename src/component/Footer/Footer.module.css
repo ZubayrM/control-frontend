@@ -1,8 +1,14 @@
 footer{
-    text-align: center;
+    text-align: left;
     color: dimgray;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 b{
     font-size: x-small;
+    margin: 8px;
 }

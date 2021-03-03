@@ -8,14 +8,20 @@
 
 .list{
     grid-area: l;
+    text-align: right;
 }
 
 .details{
+    height: 100%;
+}
+
+.detail{
     display: grid;
 
-    grid-template-columns: 150px auto 60px;
+    grid-template-columns: auto 80px;
     grid-template-areas:
-            "n s l";
+            "n l"
+            "s l";
 
     /*border-radius: 10px;*/
     /*border-color: slategrey;*/
@@ -23,12 +29,55 @@
     /*border-width: 1px;*/
 
 
+    font-size: 18px;
+
     background-color: white;
-    color: black;
-    box-shadow: 0 0 10px black;
+    color: rgb(81,92,102);
+    box-shadow: 0 0 10px rgb(81,92,102);
     margin: 5px;
+}
+
+.details a{
+    text-decoration: none;
 }
 
 .panel{
     margin: 10px;
+}
+
+.input{
+    padding: 5px;
+    margin: 1px;
+    font-size: 18px;
+    color: rgb(81,92,102);
+    border-radius: 8px 0 0 8px;
+    border: none;
+    background-color: white;
+    height: initial;
+}
+.input:after{
+    border: aliceblue;
+}
+
+
+.button{
+    background-color: rgb(81,92,102);
+    border-radius: 0 8px 8px 0;
+    border: none;
+    font-size: 18px;
+    padding: 5px;
+    margin: 1px;
+    text-align: center;
+    line-height: inherit;
+    color: rgb(205,216,228);
+    user-select: none;
+    outline: none;
+    display: inline-block;
+}
+
+.button:after{
+
+}
+.button:hover:after{
+
 }

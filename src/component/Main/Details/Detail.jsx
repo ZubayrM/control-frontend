@@ -1,18 +1,26 @@
 import React from "react";
 import style from './Detail.module.css'
+import {NavLink} from "react-router-dom";
 
 const Detail = (props) => {
 
 
     return (
-        <dev>
-            <div className={style.details}>
-                <span className={style.name}>{props.name}</span>
-                <span className={style.cipher}>{props.cipher}</span>
-                <span className={style.list}>{props.list.length} шт</span>
-            </div>
-
-        </dev>
+        <div  className={style.details}>
+            <NavLink to= {"/detail/" + props.cipher}>
+                <div className={style.detail}>
+                    <div className={style.name}>
+                        <span >{props.name}</span>
+                    </div>
+                    <div className={style.cipher}>
+                        <span >{props.cipher}</span>
+                    </div>
+                    <div className={style.list}>
+                        <span >{props.list.length} шт.</span>
+                    </div>
+                </div>
+            </NavLink>
+        </div>
     )
 }
 

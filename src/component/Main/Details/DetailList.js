@@ -1,11 +1,11 @@
 import * as React from "react";
 import Detail from "./Detail";
 import style from "./Detail.module.css"
-import '../../../App.css'
 import DetailController from "../../../controller/DetailController";
+import Nav from "../../Nav/Nav";
+import {Link, NavLink} from "react-router-dom";
 
 
-const detailController = DetailController
 
 export default class DetailList extends React.Component{
 
@@ -21,33 +21,32 @@ export default class DetailList extends React.Component{
     }
     handleSubmit = () =>{
         const detail = {
-            name: this.state.name
+            value: this.state.name
         };
 
-        if (detail.name.contains(Number)){
-            detailController.byCipher(detail.name).then(res=>{
-                const details = res.data;
-                this.setState({details})
-            })
-
-        }
-        else {
-            detailController.byName(detail.name).then(res=>{
-                const details = res.data;
-                this.setState({details})
-            })
-        }
-
-
-
+        // if (detail.name.contains(Number)){
+        //     detailController.byCipher(detail.name).then(res=>{
+        //         const details = res.data;
+        //         this.setState({details})
+        //     })
+        //
+        // }
+        // else {
+            DetailController.byName(detail.value).then(res=>{
+                this.setState({details: res.data})
+            }
+            )
+        // }
     }
 
     render() {
         return(
             <dev>
                 <div className={style.panel}>
-                    <input type='text' name='name' onChange={this.handleChange}/>
-                    <button onClick={this.handleSubmit}>поиск</button>
+                    <input className={style.input} type='text' name='name' onChange={this.handleChange}/>
+                    <Link>
+                        <a className={style.button} onClick={this.handleSubmit}>поиск</a>
+                    </Link>
                 </div>
 
                 <br/>
