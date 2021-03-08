@@ -1,5 +1,5 @@
 import React from 'react';
-import './PlanStyle.css'
+import './Plan.module.css'
 import * as axios from "axios";
 
 let get = () =>{
