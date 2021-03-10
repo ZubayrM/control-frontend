@@ -6,6 +6,7 @@ const BY_NAME = "/byName"
 const BY_CIPHER =  "/byCipher"
 const BY_EMPLOYEE = "/byEmployee"
 const BY_PRODUCT = "/byProduct"
+const BY_PLAN = "/byPlan"
 
 
 class DetailController{
@@ -30,6 +31,10 @@ class DetailController{
 
     byProduct(value){
         return axios.get(URL + BY_PRODUCT + "/" + value)
+    }
+
+    byPlan(value){
+        return axios.get(URL + BY_PLAN + '/' + value)
     }
 
     add(value){

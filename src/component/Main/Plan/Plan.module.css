@@ -4,11 +4,14 @@ progress  {
     grid-area: p;
 }
 
-/*span {*/
-
-/*    padding: 4px;*/
-/*    grid-area: s;*/
-/*}*/
+.progress{
+    grid-area: pr;
+}
+.progress meter{
+    padding: 3px;
+    width: 100%;
+    height: 15px;
+}
 
 button{
     grid-area: b;
@@ -25,8 +28,9 @@ button{
 
 .date{
     grid-area: d;
-    font-size: 22px;
+    font-size: 24px;
     margin: 4px;
+    color: rgb(180, 190, 200);
 }
 
 .status{
@@ -34,23 +38,26 @@ button{
     padding: 2px;
     grid-area: st;
     text-align: center;
+    color: rgb(205,216,228);
 }
 
 .plan{
     display: grid;
     grid-template-columns: 250px auto;
-    grid-template-rows: 40px;
+    grid-template-rows: 40px 20px;
 
     grid-template-areas:
-            "d st";
+            "d st"
+            "pr pr"
+;
 
 
     margin: 10px;
-    border-radius: 3px;
-    background-color: #8fa3ad;
-    border: 0.005em solid #d3f0ff;
-    color: rgb(81,92,102);
-    box-shadow: 0 0 10px rgb(81,92,102);
+    border-radius: 8px;
+    background-color: #32363A;
+    border: 0.02em solid #d3f0ff;
+
+    box-shadow: 0 0 10px rgb(101,112,122);
 }
 
 .a{

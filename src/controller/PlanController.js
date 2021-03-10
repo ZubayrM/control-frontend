@@ -11,6 +11,10 @@ class PlanController{
             }})
     }
 
+    all(){
+        return axios.get(URL)
+    }
+
 }
 
 export default new PlanController
