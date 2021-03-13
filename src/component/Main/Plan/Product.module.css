@@ -1,0 +1,38 @@
+.page{
+
+}
+
+.name{
+    grid-area: n;
+}
+
+.cipher{
+    grid-area: c;
+}
+
+.progress  {
+    padding: 2px;
+    grid-area: pr;
+}
+
+.product{
+    display: grid;
+    grid-template-columns: 150px 100px ;
+    grid-template-rows: 40px 20px;
+    align-items: center;
+
+    grid-template-areas:
+            "n c"
+            "pr pr";
+
+
+    background-color: white;
+    box-shadow: 0 0 5px black;
+
+    margin: 10px;
+    padding: 5px;
+
+
+}
+
+

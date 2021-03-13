@@ -1,30 +1,18 @@
-progress  {
+.progress  {
 
-    padding: 2px;
-    grid-area: p;
-}
-
-.progress{
+    padding: 1px;
     grid-area: pr;
 }
+
+
 .progress meter{
     padding: 3px;
     width: 100%;
     height: 15px;
 }
 
-button{
-    grid-area: b;
-}
 
-.product{
-    display: grid;
-    grid-template-columns: 100px 100px 60px;
-    align-items: center;
 
-    grid-template-areas:
-            "s p b";
-}
 
 .date{
     grid-area: d;
@@ -44,12 +32,11 @@ button{
 .plan{
     display: grid;
     grid-template-columns: 250px auto;
-    grid-template-rows: 40px 20px;
+    grid-template-rows: 38px 20px;
 
     grid-template-areas:
             "d st"
-            "pr pr"
-;
+            "pr pr";
 
 
     margin: 10px;

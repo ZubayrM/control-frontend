@@ -12,7 +12,6 @@ const BY_PLAN = "/byPlan"
 class DetailController{
 
     byName(value) {
-        debugger
         return  axios.get(URL + BY_NAME, {params:{
                 "name": value
                 } }

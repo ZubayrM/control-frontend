@@ -8,15 +8,15 @@ import Main from "./component/Main/Main";
 class App extends React.Component{
 
         render() {
-                return (
-                    <div className='container'>
-                            <Header />
-                            <Nav />
-                            <Main />
-                            {/*<Aside />*/}
-                            <Footer />
-                    </div>
-                )
+            return (
+                <div className='container'>
+                    <Header />
+                    <Nav />
+                    <Main />
+                    {/*<Aside />*/}
+                    <Footer />
+                </div>
+            )
         }
 
 }

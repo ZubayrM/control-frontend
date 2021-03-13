@@ -15,6 +15,10 @@ class PlanController{
         return axios.get(URL)
     }
 
+    byId(value){
+        return axios.get(URL + value)
+    }
+
 }
 
 export default new PlanController

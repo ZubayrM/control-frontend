@@ -23,27 +23,32 @@ export default class PlanList extends React.Component{
             date: null
         },
         plans: [],
+        products: []
+
 
     }
 
     constructor(props) {
         super(props);
+
+        this.getProductByPlanId = this.getProductByPlanId.bind(this)
     }
 
     componentDidMount() {
         PlanController.all().then(p=>{
             console.log(p)
-            debugger
             this.setState({plans: p.data})
+
         })
     }
 
     getProductByPlanId(value){
-        DetailController.byPlan(value).then(product=> {
-            this.setState({
-                products: product.data
-            })
+        debugger
+        PlanController.byId(value).then(p=> {
+            debugger
+            this.props.addProduct(p.data.products)
         })
+        debugger
     }
 
     render() {
@@ -51,7 +56,7 @@ export default class PlanList extends React.Component{
             <div>
                 {this.state.plans.map(p=> {
                     return (
-                        <NavLink to={"/plan/" + p.id} className={style.a} onClick={this.getProductByPlanId.bind(p.id)}>
+                        <NavLink to={"/plan/" + p.id} className={style.a} onClick={() => this.getProductByPlanId(p.id)}>
                             <Plan id = {p.id} date = {p.startDate}/>
                         </NavLink>
                     )

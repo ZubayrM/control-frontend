@@ -20,7 +20,7 @@ export default class DetailList extends React.Component{
     }
     handleSubmit = () =>{
 
-
+        debugger
         const detail = {
             value: this.state.name
         };

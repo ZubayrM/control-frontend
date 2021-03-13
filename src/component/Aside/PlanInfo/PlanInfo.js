@@ -5,6 +5,7 @@ import Product from "../../Main/Plan/Product";
 export default class PlanInfo extends React.Component{
 
     state = {
+        idPlan: null,
         products: []
     }
 
@@ -15,11 +16,15 @@ export default class PlanInfo extends React.Component{
         // })
     }
 
+    componentDidMount() {
+
+
+    }
+
     render() {
         return(
             <div>
-                <div>
-                    {this.props.product.map(p=>
+                {this.props.product.map(p=>
                     {
                         return(
                             <Product
@@ -29,9 +34,7 @@ export default class PlanInfo extends React.Component{
                         )
                     }
 
-                    )}
-                </div>
-
+                )}
             </div>
         )
     }

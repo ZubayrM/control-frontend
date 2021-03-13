@@ -13,22 +13,19 @@ export default class Main extends React.Component{
 
     state = {
         idPlan: null,
-        products: [
-            {
-                id: '1',
-                name: 'product',
-                cipher: '007'
-            },
-            {
-                id: '2',
-                name: 'product2',
-                cipher: '009'
-            }
-        ]
+        products: []
     }
 
     constructor(props) {
         super(props);
+
+        this.addProduct = this.addProduct.bind(this)
+    }
+
+    addProduct(products){
+        this.setState({
+            products: products
+        })
     }
 
     updateIdPlan(value){
@@ -43,7 +40,7 @@ export default class Main extends React.Component{
             <main className={style.main}>
                 <div className={style.col1}>
                     <Route path='/main' render={() => <General />}/>
-                    <Route path='/plan' render={ () => <PlanList />}/>
+                    <Route path='/plan' render={ () => <PlanList addProduct = {this.addProduct} />}/>
                     <Route path='/detail' render={() => <DetailList
                         iaPlan = {this.updateIdPlan}
                     />}/>
@@ -51,7 +48,7 @@ export default class Main extends React.Component{
                     <Route path='/employee' render={ () => <EmployeeList/>}/>
                     <Route path='/statistics' render={ () => <Statistics />}/>
                 </div>
-                <div className={style.col2}>
+                <div className={style.col2} key={this.state.idPlan}>
                     <Aside product = {this.state.products} />
                 </div>
             </main>
