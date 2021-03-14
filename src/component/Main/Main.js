@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import EmployeeList from "./Employee/EmployeeList";
 import General from "./General/General";
 import Statistics from "./Statistacs/Statistics";
@@ -13,7 +13,10 @@ export default class Main extends React.Component{
 
     state = {
         idPlan: null,
-        products: []
+        plans: [],
+        products: [],
+        details: [],
+        employees: []
     }
 
     constructor(props) {
@@ -22,11 +25,17 @@ export default class Main extends React.Component{
         this.addProduct = this.addProduct.bind(this)
     }
 
-    addProduct(products){
+    addProduct(products) {
+
         this.setState({
             products: products
         })
+
+        // this.setState(state => {
+        //     return state.products.push(products)
+        // })
     }
+
 
     updateIdPlan(value){
         this.setState({
@@ -49,7 +58,7 @@ export default class Main extends React.Component{
                     <Route path='/statistics' render={ () => <Statistics />}/>
                 </div>
                 <div className={style.col2} key={this.state.idPlan}>
-                    <Aside product = {this.state.products} />
+                    <Aside product = {this.state.products}  {...super.state} />
                 </div>
             </main>
         )

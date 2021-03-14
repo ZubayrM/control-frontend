@@ -16,7 +16,7 @@ class PlanController{
     }
 
     byId(value){
-        return axios.get(URL + value)
+        return axios.get(URL + "/" + value)
     }
 
 }

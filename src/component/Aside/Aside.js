@@ -10,7 +10,7 @@ const Aside = (props) => {
     return (
         <aside>
             <Route path='/main' render={() => <General />}/>
-            <Route path='/plan/*' render={ () => <PlanInfo product = {props.product}  />}/>
+            <Route path='/plan/*' render={ () => <PlanInfo product = {props.product}/>}/>
             <Route path='/detail/*' render={ () => <DetailInfoList />}/>
             <Route path='/employee' render={ () => <EmployeeList/>}/>
             <Route path='/statistics' render={ () => <Statistics />}/>

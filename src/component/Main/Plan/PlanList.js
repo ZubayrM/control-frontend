@@ -37,6 +37,7 @@ export default class PlanList extends React.Component{
     componentDidMount() {
         PlanController.all().then(p=>{
             console.log(p)
+            debugger
             this.setState({plans: p.data})
 
         })
