@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "http://localhost:8082/plan"
+const URL = "http://localhost:8083/plan"
 const BY_DATE = "/byDate"
 
 class PlanController{

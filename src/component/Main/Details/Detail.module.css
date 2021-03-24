@@ -48,12 +48,13 @@
 .input{
     padding: 5px;
     margin: 1px;
-    font-size: 18px;
+    font-size: 16px;
     color: rgb(81,92,102);
     border-radius: 8px 0 0 8px;
     border: none;
     background-color: white;
-    height: initial;
+    height: 20px;
+    align-items: center;
 }
 .input:after{
     border: aliceblue;
@@ -64,7 +65,7 @@
     background-color: rgb(81,92,102);
     border-radius: 0 8px 8px 0;
     border: none;
-    font-size: 18px;
+    font-size: 16px;
     padding: 5px;
     margin: 1px;
     text-align: center;
@@ -73,6 +74,8 @@
     user-select: none;
     outline: none;
     display: inline-block;
+    height: 20px;
+    align-items: center;
 }
 
 .button:after{

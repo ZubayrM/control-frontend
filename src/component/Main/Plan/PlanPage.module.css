@@ -1,0 +1,28 @@
+.plan{
+    height: 100%;
+    width: 100%;
+    grid-area: c1;
+}
+
+.product{
+    height: 100%;
+    width: 100%;
+    grid-area: c2;
+}
+
+.detail{
+    height: 100%;
+    width: 100%;
+    grid-area: c3;
+}
+
+.page{
+
+    display: grid;
+
+    grid-template-columns: 260px 260px auto;
+    grid-template-rows: 100%;
+
+    grid-template-areas:
+            "c1 c2 c3";
+}

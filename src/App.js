@@ -13,12 +13,10 @@ class App extends React.Component{
                     <Header />
                     <Nav />
                     <Main />
-                    {/*<Aside />*/}
                     <Footer />
                 </div>
             )
         }
-
 }
 
 export default App

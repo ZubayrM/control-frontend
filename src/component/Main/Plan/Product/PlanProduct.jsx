@@ -1,11 +1,7 @@
 import React from 'react';
-import * as axios from "axios";
-import style from "./Product.module.css"
+import style from "./PlanProduct.module.css"
 
-
-const Product = (props) => {
-
-
+const PlanProduct = (props) => {
 
      return  (
         <div className={style.product}>
@@ -22,4 +18,4 @@ const Product = (props) => {
      )
 }
 
-export default Product
+export default PlanProduct

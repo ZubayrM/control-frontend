@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as React from "react";
 
-const URL = "http://localhost:8082/detail"
+const URL = "http://localhost:8083/detail"
 const BY_NAME = "/byName"
 const BY_CIPHER =  "/byCipher"
 const BY_EMPLOYEE = "/byEmployee"
