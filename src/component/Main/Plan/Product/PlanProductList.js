@@ -7,32 +7,40 @@ import style from "./PlanProduct.module.css"
 export default class PlanProductList extends React.Component {
 
     state = {
-        products: []
+        products: [],
+        active: null
+    }
+
+    constructor(props) {
+        super(props);
+        this.state.active = this.props.active
+
     }
 
     componentDidMount() {
-        var value = this.props.getPlan()
         debugger
-        PlanController.byId(this.props.getPlan()).then(p => {
-            debugger
+        PlanController.byId(this.props.active).then(p => {
             console.log(p.data)
             this.setState({
                 products: p.data.products
             })
         })
-        debugger
+
     }
 
+
+
     render() {
-        debugger
+
+        this.componentDidMount()
         return(
             <div className={style.page}>
                 {this.state.products.map(p=> {
                     return (
-                        <div>
-                            <NavLink to={"/plan/" + p.name} >
+                        <div onClick={()=> this.props.setDetail(p.id)} >
+                            {/*<NavLink strict to={"/" + p.cipher} >*/}
                                 <PlanProduct  {...p} />
-                            </NavLink>
+                            {/*</NavLink>*/}
                         </div>
                     )
                 })}

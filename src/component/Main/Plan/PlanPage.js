@@ -5,6 +5,7 @@ import PlanList from "./Plan/PlanList";
 import PlanProductList from "./Product/PlanProductList";
 import PlanDetailList from "./Detail/PlanDetailList";
 import {Route} from "react-router-dom";
+import DetailController from "../../../controller/DetailController";
 
 // function extractedDate() {
 //     function pad(s) {
@@ -32,6 +33,9 @@ export default class PlanPage extends React.Component{
         this.setPlanActive = this.setPlanActive.bind(this)
         this.getPlanActive = this.getPlanActive.bind(this)
         this.addPlans = this.addPlans.bind(this)
+
+        this.setDetail = this.setDetail.bind(this)
+        this.getDetail = this.getDetail.bind(this)
     }
 
     addPlans(plans){
@@ -52,11 +56,24 @@ export default class PlanPage extends React.Component{
                 planActive: value
             }
         })
-        debugger
     }
 
     getPlanActive(){
         return this.state.plan.planActive
+    }
+
+    setDetail(value){
+        console.log(value)
+        DetailController.byProduct(value).then(result=>{
+            this.setState({
+                details: result.data
+            })
+        })
+        debugger
+    }
+
+    getDetail(){
+        return this.state.plan.details
     }
 
     render() {
@@ -75,7 +92,11 @@ export default class PlanPage extends React.Component{
                 {/*<Route path={"/plan/*"} render={()=> <PlanProductList getPlan = {this.getPlanActive}/>}/>*/}
                 <div className={style.product}>
                     <Route path={"/plan/*"}>
-                        <PlanProductList getPlan = {this.getPlanActive}/>
+                        <PlanProductList
+                            active = {this.state.plan.planActive}
+                            getPlan = {this.getPlanActive}
+                            setDetail = {this.setDetail}
+                        />
                     </Route>
                 </div>
 

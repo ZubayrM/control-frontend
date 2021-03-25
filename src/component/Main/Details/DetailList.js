@@ -32,6 +32,17 @@ export default class DetailList extends React.Component{
         debugger
         return(
             <dev>
+                <div>
+                    <select>
+                        <option>План {this.props.active}</option>
+                    </select>
+                </div>
+                <div>
+                    <select>
+                        <option>Изделие</option>
+                    </select>
+                </div>
+
                 <div className={style.panel}>
                     <input className={style.input} type='text' name='name' onChange={this.handleChange}/>
                     <Link to={"/detail"}>
@@ -39,6 +50,20 @@ export default class DetailList extends React.Component{
                     </Link>
                 </div>
 
+                <div>
+                    <table>
+                        <tr>
+                            <th>Наименование</th>
+                            <th>Обозначение</th>
+                            <th>Кол-во</th>
+                        </tr>
+                        <tr>
+                            <td>Имя</td>
+                            <td>Шифр</td>
+                            <td>27</td>
+                        </tr>
+                    </table>
+                </div>
                 { this.state.details.map(d => <Detail name={d.name} cipher={d.cipher} list={d.list} />)}
             </dev>
         )

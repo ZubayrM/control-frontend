@@ -5,7 +5,7 @@ const URL = "http://localhost:8083/detail"
 const BY_NAME = "/byName"
 const BY_CIPHER =  "/byCipher"
 const BY_EMPLOYEE = "/byEmployee"
-const BY_PRODUCT = "/byProduct"
+const BY_PRODUCT = "/product"
 const BY_PLAN = "/byPlan"
 
 
