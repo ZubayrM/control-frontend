@@ -33,13 +33,13 @@ export default class DetailList extends React.Component{
         return(
             <dev>
                 <div>
-                    <select>
-                        <option>План {this.props.active}</option>
+                    <select className={style.select1}>
+                        <option>План: {this.props.active}</option>
                     </select>
                 </div>
                 <div>
-                    <select>
-                        <option>Изделие</option>
+                    <select className={style.select2}>
+                        <option>Изделие: </option>
                     </select>
                 </div>
 
@@ -51,11 +51,21 @@ export default class DetailList extends React.Component{
                 </div>
 
                 <div>
-                    <table>
+                    <table className={style.table}>
                         <tr>
                             <th>Наименование</th>
                             <th>Обозначение</th>
                             <th>Кол-во</th>
+                        </tr>
+                        <tr>
+                            <td>Имя</td>
+                            <td>Шифр</td>
+                            <td>27</td>
+                        </tr>
+                        <tr>
+                            <td>Имя</td>
+                            <td>Шифр</td>
+                            <td>27</td>
                         </tr>
                         <tr>
                             <td>Имя</td>
