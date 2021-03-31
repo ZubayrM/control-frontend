@@ -3,10 +3,11 @@ import {Route} from "react-router-dom";
 import EmployeeList from "./Employee/EmployeeList";
 import General from "./General/General";
 import Statistics from "./Statistacs/Statistics";
-import DetailList from "./Details/DetailList";
+import DetailList from "./Details/ListDetail/DetailList";
 import PlanPage from "./Plan/PlanPage";
 import ProductList from "./Product/ProductList";
 import style from "./Main.module.css";
+import DetailPage from "./Details/DetailPage";
 
 export default class Main extends React.Component{
 
@@ -51,7 +52,7 @@ export default class Main extends React.Component{
                         addProduct = {this.addProduct}
                         plan = {this.state.plan}
                     />}/>
-                    <Route path='/detail' render={() => <DetailList
+                    <Route path='/detail' render={() => <DetailPage
                         iaPlan = {this.updateIdPlan}
                     />}/>
                     <Route path='/product' render={() => <ProductList />}/>

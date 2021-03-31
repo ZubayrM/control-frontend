@@ -1,7 +1,7 @@
 import * as React from "react";
 import Detail from "./Detail";
 import style from "./Detail.module.css"
-import DetailController from "../../../controller/DetailController";
+import DetailController from "../../../../controller/DetailController";
 import {Link} from "react-router-dom";
 
 
@@ -58,19 +58,19 @@ export default class DetailList extends React.Component{
                             <th>Кол-во</th>
                         </tr>
                         <tr>
-                            <td>Имя</td>
-                            <td>Шифр</td>
-                            <td>27</td>
+                            <td><a href='/'>Имя</a></td>
+                            <td><a href='/'>Шифр</a></td>
+                            <td><a href='/'>27</a></td>
                         </tr>
                         <tr>
-                            <td>Имя</td>
-                            <td>Шифр</td>
-                            <td>27</td>
+                            <td><a href='/'>Имя</a></td>
+                            <td><a href='/'>Шифр</a></td>
+                            <td><a href='/'>27</a></td>
                         </tr>
                         <tr>
-                            <td>Имя</td>
-                            <td>Шифр</td>
-                            <td>27</td>
+                            <td><a href='/'>Имя</a></td>
+                            <td><a href='/'>Шифр</a></td>
+                            <td><a href='/'>27</a></td>
                         </tr>
                     </table>
                 </div>

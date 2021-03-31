@@ -1,0 +1,23 @@
+.list{
+    grid-area: l;
+}
+
+.panel{
+    grid-area: p;
+
+    margin-left: 10px;
+    border: 1px solid rgb(81,92,102);
+    box-shadow: 0 0 4px rgb(81,92,102) ;
+}
+
+.page{
+    display: grid;
+    margin: 8px;
+    border: 10px;
+
+    grid-template-columns: auto auto;
+
+
+    grid-template-areas:
+            "l p";
+}
