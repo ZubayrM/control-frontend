@@ -6,6 +6,8 @@ import PlanProductList from "./Product/PlanProductList";
 import PlanDetailList from "./Detail/PlanDetailList";
 import {Route} from "react-router-dom";
 import DetailController from "../../../controller/DetailController";
+import DetailList from "../Details/ListDetail/DetailList";
+import PlanDetail from "./Detail/PlanDetail";
 
 // function extractedDate() {
 //     function pad(s) {
@@ -22,6 +24,7 @@ export default class PlanPage extends React.Component{
     state = {
         plan: {
             planActive: null,
+            productActive: null,
             plans: [],
             details: []
         }
@@ -36,6 +39,9 @@ export default class PlanPage extends React.Component{
 
         this.setDetail = this.setDetail.bind(this)
         this.getDetail = this.getDetail.bind(this)
+
+        this.getProductActive = this.getProductActive.bind(this)
+        this.setProductActive = this.setProductActive.bind(this)
     }
 
     addPlans(plans){
@@ -62,9 +68,21 @@ export default class PlanPage extends React.Component{
         return this.state.plan.planActive
     }
 
+    getProductActive(){
+        return this.state.plan.productActive
+    }
+    setProductActive(value){
+        this.setState({
+            plan: {
+                productActive: value
+            }
+        })
+    }
+
     setDetail(value){
-        console.log(value)
+        debugger
         DetailController.byProduct(value).then(result=>{
+            console.log(result.data)
             this.setState({
                 details: result.data
             })
@@ -96,16 +114,15 @@ export default class PlanPage extends React.Component{
                             active = {this.state.plan.planActive}
                             getPlan = {this.getPlanActive}
                             setDetail = {this.setDetail}
+
                         />
                     </Route>
                 </div>
-
-                    {/*<div className={style.product}>*/}
-                {/*    <PlanProductList product = {this.props.plan.products}/>*/}
-                {/*</div>*/}
-                {/*<div className={style.detail}>*/}
-                {/*    <PlanDetailList {...this.props} />*/}
-                {/*</div>*/}
+                <div>
+                    <PlanDetailList
+                        getDetail = {this.getDetail}
+                    />
+                </div>
             </div>
         )
     }
