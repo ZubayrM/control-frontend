@@ -1,27 +1,40 @@
 import * as React from "react";
 import PlanDetail from "./PlanDetail";
+import DetailController from "../../../../controller/DetailController";
+import style from "./PlanDetail.module.css"
+import {NavLink} from "react-router-dom";
 
 export default class PlanDetailList extends React.Component{
 
     state = {
-        details: []
+        details: [],
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         debugger
-        this.setState({
-            details: this.props.getDetail()
-        })
+        if (true){
+            DetailController.byProduct(this.props.getProductActive()).then(result =>{
+                this.setState({
+                    details: result.data
+                })
+            })
+            debugger
+
+        }
+
     }
 
 
     render() {
         debugger
         return(
-            <div>
+            <div className={style.page}>
                 {this.state.details.map(d=> {
                     return(
-                        <PlanDetail {...d} />
+                        <NavLink to = {"/detail"}>
+                            <PlanDetail {...d} />
+                        </NavLink>
+
                     )
                 })}
             </div>

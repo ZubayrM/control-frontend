@@ -18,7 +18,6 @@ export default class PlanList extends React.Component {
     }
 
     componentDidMount() {
-        debugger
         PlanController.all().then(p=>{
             //this.props.addPlan(p.data)
             this.setState({plans: p.data})
@@ -26,7 +25,6 @@ export default class PlanList extends React.Component {
     }
 
     getProductByPlanId(value){
-        debugger
         PlanController.byId(value).then(p=> {
             this.props.addProduct(p.data.products)
         })
@@ -34,7 +32,6 @@ export default class PlanList extends React.Component {
 
     render() {
 
-        debugger
         return(
 
             <div>

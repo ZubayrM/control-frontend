@@ -47,20 +47,23 @@ export default class PlanPage extends React.Component{
     addPlans(plans){
         this.setState(
             {
-                plan:{
+
                     plans: plans
-                }
+
             }
         )
     }
 
 
     setPlanActive(value){
-        console.log(value)
         this.setState({
+
             plan: {
                 planActive: value
             }
+
+
+
         })
     }
 
@@ -69,29 +72,33 @@ export default class PlanPage extends React.Component{
     }
 
     getProductActive(){
+        debugger
         return this.state.plan.productActive
     }
     setProductActive(value){
+        debugger
         this.setState({
-            plan: {
+            plan:{
                 productActive: value
             }
+
+
         })
     }
 
     setDetail(value){
-        debugger
         DetailController.byProduct(value).then(result=>{
             console.log(result.data)
             this.setState({
                 details: result.data
             })
         })
-        debugger
     }
 
     getDetail(){
-        return this.state.plan.details
+        const data = this.state.plan.details
+        debugger
+        return data
     }
 
     render() {
@@ -114,13 +121,15 @@ export default class PlanPage extends React.Component{
                             active = {this.state.plan.planActive}
                             getPlan = {this.getPlanActive}
                             setDetail = {this.setDetail}
+                            setActive = {this.setProductActive}
 
                         />
                     </Route>
                 </div>
-                <div>
+                <div className={style.detail}>
                     <PlanDetailList
                         getDetail = {this.getDetail}
+                        getProductActive={this.getProductActive}
                     />
                 </div>
             </div>

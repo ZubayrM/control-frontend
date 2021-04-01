@@ -19,7 +19,6 @@ export default class PlanProductList extends React.Component {
     }
 
     componentDidMount() {
-        debugger
         PlanController.byId(this.props.active).then(p => {
             console.log(p.data)
             this.setState({
@@ -50,7 +49,7 @@ export default class PlanProductList extends React.Component {
             <div className={style.page}>
                 {this.state.products.map(p=> {
                     return (
-                        <div onClick={()=> this.props.setDetail(p.id)} >
+                        <div onClick={()=> this.props.setActive(p.id)} >
                             <NavLink strict to={ p.cipher} >
                                 <PlanProduct  name = {p.name} cipher = {p.cipher} />
                             </NavLink>
