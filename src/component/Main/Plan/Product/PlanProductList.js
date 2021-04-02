@@ -50,7 +50,7 @@ export default class PlanProductList extends React.Component {
                 {this.state.products.map(p=> {
                     return (
                         <div onClick={()=> this.props.setActive(p.id)} >
-                            <NavLink strict to={ p.cipher} >
+                            <NavLink strict to={ p.cipher} activeClassName={style.active} >
                                 <PlanProduct  name = {p.name} cipher = {p.cipher} />
                             </NavLink>
                         </div>

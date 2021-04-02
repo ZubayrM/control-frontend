@@ -11,8 +11,7 @@ export default class PlanDetailList extends React.Component{
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        debugger
-        if (true){
+        if (prevProps.getProductActive() === this.props.getProductActive()){
             DetailController.byProduct(this.props.getProductActive()).then(result =>{
                 this.setState({
                     details: result.data
@@ -26,10 +25,10 @@ export default class PlanDetailList extends React.Component{
 
 
     render() {
-        debugger
         return(
             <div className={style.page}>
                 {this.state.details.map(d=> {
+                    debugger
                     return(
                         <NavLink to = {"/detail"}>
                             <PlanDetail {...d} />

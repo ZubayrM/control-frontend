@@ -15,6 +15,9 @@
     width: 100%;
     grid-area: c3;
 }
+a{
+    text-decoration: none;
+}
 
 .page{
 
@@ -23,7 +26,7 @@
 
     display: grid;
 
-    grid-template-columns: 260px 260px auto;
+    grid-template-columns: 260px auto 550px;
     grid-template-rows: 100%;
 
     grid-template-areas:

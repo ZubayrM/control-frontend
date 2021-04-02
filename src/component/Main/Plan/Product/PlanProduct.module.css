@@ -24,15 +24,17 @@
     height: 8px;
 }
 
-a{
-    text-decoration: none;
+a .product{
+    background-color: white;
 }
+
+
 
 
 .product{
     display: grid;
     grid-template-columns: auto ;
-    grid-template-rows: 50px 20px 12px;
+    grid-template-rows: 30px 18px 10px;
     align-items: center;
 
     grid-template-areas:
@@ -41,7 +43,7 @@ a{
             "pr";
 
 
-    background-color: white;
+
     box-shadow: 0 0 3px black;
 
     margin: 10px;
@@ -49,6 +51,19 @@ a{
 
     border-radius: 8px;
 }
+
+.active .product{
+    background-color: rgb(81,92,102);
+}
+.active .name{
+    color: white;
+}
+
+.active .cipher{
+    color: white;
+}
+
+
 
 .page::-webkit-scrollbar {
     width: 6px;

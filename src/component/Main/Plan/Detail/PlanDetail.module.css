@@ -8,32 +8,30 @@
 .cipher{
     color: rgb(81,92,102);
     grid-area: c;
+    font-size: 14px;
 }
 
 .size{
     grid-area: s;
     color: rgb(81,92,102);
-    font-size: 22px;
-    width: max-content;
+    font-size: 32px;
 }
 .sizeInWork{
     grid-area: s2;
     color: #D2691E;
-    font-size: 22px;
-    width: max-content;
+    font-size: 32px;
 }
 
 .sizeCompleted{
     grid-area: s3;
     color: #006400;
-    font-size: 22px;
-    width: max-content;
+    font-size: 32px;
 }
 
 .detail{
     display: grid;
 
-    grid-template-columns: 300px max-content;
+    grid-template-columns: auto 85px 85px 85px;
     grid-template-areas:
             "n s s2 s3"
             "c s s2 s3";
