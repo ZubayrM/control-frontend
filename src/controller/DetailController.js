@@ -7,6 +7,7 @@ const BY_CIPHER =  "/byCipher"
 const BY_EMPLOYEE = "/byEmployee"
 const BY_PRODUCT = "/product"
 const BY_PLAN = "/byPlan"
+const BY_OPERATION = "/byOperation"
 
 
 class DetailController{
@@ -56,6 +57,13 @@ class DetailController{
         return axios.get(URL + "/" + {value})
     }
 
+    countByOperation(value) {
+        return axios.get(URL + BY_OPERATION, {params:{
+            "cipher": value.cipher,
+                "typeOperation": value.typeOperation
+
+        }})
+    }
 }
 
 export default new DetailController

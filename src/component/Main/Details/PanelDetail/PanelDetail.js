@@ -1,9 +1,10 @@
 import * as React from "react";
+import style from './PanelDetail.module.css'
 
 export default class PanelDetail extends React.Component{
     render() {
         return(
-            <>
+            <div className={style.panel}>
                 <table>
                     <tr>
                         <th>Операция</th>
@@ -18,7 +19,7 @@ export default class PanelDetail extends React.Component{
                                 <option>Мамедов</option>
                             </select>
                         </td>
-                        <td rowSpan="2">
+                        <td>
                             <input type="text" size='3' placeholder='0'/>
                         </td>
                     </tr>
@@ -34,7 +35,7 @@ export default class PanelDetail extends React.Component{
                 </table>
                 <br/>
                 <button>Сохранить</button>
-            </>
+            </div>
         )
     }
 }

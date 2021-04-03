@@ -3,25 +3,29 @@ import {Route} from "react-router-dom";
 import EmployeeList from "./Employee/EmployeeList";
 import General from "./General/General";
 import Statistics from "./Statistacs/Statistics";
-import DetailList from "./Details/ListDetail/DetailList";
 import PlanPage from "./Plan/PlanPage";
-import ProductList from "./Product/ProductList";
 import style from "./Main.module.css";
 import DetailPage from "./Details/DetailPage";
+import ProductPage from "./Product/ProductPage";
 
 export default class Main extends React.Component{
 
     state = {
-        employees: []
+        employees: [],
+        productActive: null
     }
 
     constructor(props) {
         super(props);
 
         this.addProduct = this.addProduct.bind(this)
+        this.getProductActive = this.getProductActive.bind(this)
     }
 
 
+    getProductActive(){
+        return this.state.productActive
+    }
 
 
     addProduct(products) {
@@ -55,7 +59,9 @@ export default class Main extends React.Component{
                     <Route path='/detail' render={() => <DetailPage
                         iaPlan = {this.updateIdPlan}
                     />}/>
-                    <Route path='/product' render={() => <ProductList />}/>
+                    <Route path='/product' render={() => <ProductPage
+                        getProductActive = {this.getProductActive}
+                    />}/>
                     <Route path='/employee' render={ () => <EmployeeList/>}/>
                     <Route path='/statistics' render={ () => <Statistics />}/>
                 </div>

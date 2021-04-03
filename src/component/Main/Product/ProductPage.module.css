@@ -4,17 +4,13 @@
 
 .panel{
     grid-area: p;
-    margin-left: 10px;
 }
 
-.page{
+.form{
     display: grid;
-    margin: 8px;
-    border: 10px;
 
-    grid-template-columns: auto auto;
-
-
+    grid-template-rows: auto 400px ;
     grid-template-areas:
             "l p";
+
 }
