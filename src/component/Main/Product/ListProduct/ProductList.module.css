@@ -1,6 +1,27 @@
 .products{
-    margin: 10px;
+    margin: 5px;
     padding: 5px;
     border: 1px solid black;
     box-shadow: 0 0 4px black;
+
+}
+
+.list{
+    overflow: auto;
+    height: 90vh;
+
+}
+
+.list a{
+    color: #32363A;
+}
+
+.detail{
+
+
+    padding: 2px;
+}
+
+.select{
+    width: 100%;
 }

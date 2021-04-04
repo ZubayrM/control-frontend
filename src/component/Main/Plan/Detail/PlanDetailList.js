@@ -11,6 +11,7 @@ export default class PlanDetailList extends React.Component{
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log(prevProps.getProductActive() +" = " + this.props.getProductActive())
         if (prevProps.getProductActive() === this.props.getProductActive()){
             DetailController.byProduct(this.props.getProductActive()).then(result =>{
                 this.setState({
@@ -21,6 +22,9 @@ export default class PlanDetailList extends React.Component{
 
         }
 
+    }
+
+    componentDidMount() {
     }
 
 

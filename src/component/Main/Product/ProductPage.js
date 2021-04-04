@@ -37,12 +37,13 @@ export default class ProductPage extends React.Component{
                 details: result.data
             })
         })
+        console.log(this.state)
     }
 
     handleClickDetail(value){
+        debugger
         this.setState({
-            detail: value.target.innerText,
-            operation: 1
+            detail: value
         })
     }
 

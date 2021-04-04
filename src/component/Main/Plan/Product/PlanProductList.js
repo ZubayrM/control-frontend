@@ -16,6 +16,8 @@ export default class PlanProductList extends React.Component {
     constructor(props) {
         super(props);
         this.state.active = this.props.active
+        
+        this.getProducts = this.getProducts.bind(this)
     }
 
     componentDidMount() {
@@ -26,6 +28,10 @@ export default class PlanProductList extends React.Component {
             })
         })
 
+    }
+
+    getProducts(){
+        return this.state.products
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {

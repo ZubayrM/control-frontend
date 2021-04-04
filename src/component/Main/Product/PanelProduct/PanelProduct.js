@@ -84,12 +84,15 @@ export default class PanelProduct extends React.Component{
                                 <td>
                                     <input onChange={this.onChangeCount}
                                            name="size" className={style.name}
-                                           type="text" size={3}
+                                           type="text" size={1}
                                            placeholder={this.props.getSize()}/>
                                 </td>
                             </tr>
                         </table>
-                        <input type="submit" value="сохранить"/>
+                        <div className={style.button}>
+                            <input type="submit" value="сохранить"/>
+                        </div>
+
                     </div>
 
                 </form>

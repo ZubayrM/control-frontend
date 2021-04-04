@@ -9,7 +9,7 @@
 .form{
     display: grid;
 
-    grid-template-rows: auto 400px ;
+    grid-template-rows: 100% 400px ;
     grid-template-areas:
             "l p";
 

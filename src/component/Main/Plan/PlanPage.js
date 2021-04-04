@@ -1,13 +1,10 @@
 import * as React from "react";
-import PlanController from "../../../controller/PlanController"
 import style from "./PlanPage.module.css";
 import PlanList from "./Plan/PlanList";
 import PlanProductList from "./Product/PlanProductList";
 import PlanDetailList from "./Detail/PlanDetailList";
 import {Route} from "react-router-dom";
 import DetailController from "../../../controller/DetailController";
-import DetailList from "../Details/ListDetail/DetailList";
-import PlanDetail from "./Detail/PlanDetail";
 
 // function extractedDate() {
 //     function pad(s) {
@@ -24,7 +21,6 @@ export default class PlanPage extends React.Component{
     state = {
         plan: {
             planActive: null,
-            productActive: null,
             plans: [],
             details: []
         }
@@ -40,8 +36,6 @@ export default class PlanPage extends React.Component{
         this.setDetail = this.setDetail.bind(this)
         this.getDetail = this.getDetail.bind(this)
 
-        this.getProductActive = this.getProductActive.bind(this)
-        this.setProductActive = this.setProductActive.bind(this)
     }
 
     addPlans(plans){
@@ -71,20 +65,6 @@ export default class PlanPage extends React.Component{
         return this.state.plan.planActive
     }
 
-    getProductActive(){
-        debugger
-        return this.state.plan.productActive
-    }
-    setProductActive(value){
-        debugger
-        this.setState({
-            plan:{
-                productActive: value
-            }
-
-
-        })
-    }
 
     setDetail(value){
         DetailController.byProduct(value).then(result=>{
@@ -97,7 +77,6 @@ export default class PlanPage extends React.Component{
 
     getDetail(){
         const data = this.state.plan.details
-        debugger
         return data
     }
 
@@ -121,7 +100,7 @@ export default class PlanPage extends React.Component{
                             active = {this.state.plan.planActive}
                             getPlan = {this.getPlanActive}
                             setDetail = {this.setDetail}
-                            setActive = {this.setProductActive}
+                            setActive = {this.props.setProductActive}
 
                         />
                     </Route>
@@ -129,7 +108,7 @@ export default class PlanPage extends React.Component{
                 <div className={style.detail}>
                     <PlanDetailList
                         getDetail = {this.getDetail}
-                        getProductActive={this.getProductActive}
+                        getProductActive={this.props.getProductActive}
                     />
                 </div>
             </div>

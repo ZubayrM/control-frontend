@@ -1,38 +1,52 @@
 import * as React from "react";
 import style from './ProductList.module.css'
 import {NavLink} from "react-router-dom";
+import PlanController from "../../../../controller/PlanController";
 
 export default class ProductList extends React.Component{
+
+    state = {
+        plan: null,
+        plans:[],
+        products: []
+    }
+
+   componentDidMount() {
+        PlanController.all().then(result=>{
+            this.setState({
+                plans: result.data
+            })
+        })
+   }
+
 
     render() {
         return(
             <div className={style.products}>
-
-                {this.props.getDetails}
-
-
-
-                <select>
-                    <option selected={true}>{this.props.getProductActive()}</option>
-                    <option>изделие 2</option>
-                </select>
-                <ul>
-                    {this.props.getDetails().map(d=>{
+                <select className={style.select}>
+                    {this.state.products.map(p=>{
                         return(
-                            <li>
-                                <NavLink to="/product/1" onClick={() => this.props.handleClickDetail(d.id)}>
-                                    <label>{d.name}</label>
-                                </NavLink>
-                            </li>
+                            <option>{p.name + " " + p.cipher}</option>
                         )
                     })}
 
-                    <li>
-                        <NavLink to="/product/2" onClick={this.props.handleClickDetail}>
-                            <label>2</label>
-                        </NavLink>
-                    </li>
-                </ul>
+                </select>
+                <div className={style.list}>
+                    <ul>
+                        {this.props.getDetails().map(d=>{
+                            debugger
+                            return(
+                                <li className={style.detail}>
+                                    <NavLink to={"/product/" + d.cipher} onClick={() => this.props.handleClickDetail(d.cipher)}>
+                                        <label>{d.name}</label>
+                                        <label>{d.cipher}</label>
+                                    </NavLink>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </div>
+
             </div>
         )
     }
