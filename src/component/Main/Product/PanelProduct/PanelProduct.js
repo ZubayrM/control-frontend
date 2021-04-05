@@ -74,7 +74,7 @@ export default class PanelProduct extends React.Component{
                                 <td>
                                     <select onChange={this.onChangeEmployee} className={style.name}>
                                         <option selected={true}>работник</option>
-                                        {this.props.getEmployees().map(e=>{
+                                        {this.props.getOperations().map(e=>{
                                             return(
                                                 <option value={e.id}>{e.name}</option>
                                             )

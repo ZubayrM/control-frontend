@@ -48,7 +48,9 @@ export default class ProductPage extends React.Component{
     }
 
     handleGetOperation(value){
+        debugger
         OperationController.byDetail(value).then(result=>{
+            debugger
             this.setState({
                 operations: result.data
             })
@@ -106,12 +108,14 @@ export default class ProductPage extends React.Component{
                         handleClickDetail = {this.handleClickDetail}
                         getDetails = {this.getDetails}
                         getProductActive = {this.props.getProductActive}
+                        setOperation = {this.handleGetOperation}
                     />
                 </div>
                 <div className={style.panel}>
                     <PanelProduct
                         getDetail = {this.getDetail}
                         getOperation = {this.getOperation}
+
 
                         getDetails = {this.getDetails}
                         getOperations = {this.getOperations}

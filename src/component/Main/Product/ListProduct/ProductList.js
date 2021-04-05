@@ -11,6 +11,11 @@ export default class ProductList extends React.Component{
         products: []
     }
 
+    constructor(props) {
+        super(props);
+
+    }
+
    componentDidMount() {
         PlanController.all().then(result=>{
             this.setState({
@@ -21,6 +26,7 @@ export default class ProductList extends React.Component{
 
 
     render() {
+        debugger
         return(
             <div className={style.products}>
                 <select className={style.select}>
@@ -37,7 +43,7 @@ export default class ProductList extends React.Component{
                             debugger
                             return(
                                 <li className={style.detail}>
-                                    <NavLink to={"/product/" + d.cipher} onClick={() => this.props.handleClickDetail(d.cipher)}>
+                                    <NavLink to={"/product/" + d.cipher} onClick={() => this.props.setOperation(d.cipher)}>
                                         <label>{d.name}</label>
                                         <label>{d.cipher}</label>
                                     </NavLink>
