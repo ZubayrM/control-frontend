@@ -5,6 +5,7 @@ import PlanProductList from "./Product/PlanProductList";
 import PlanDetailList from "./Detail/PlanDetailList";
 import {Route} from "react-router-dom";
 import DetailController from "../../../controller/DetailController";
+import PlanController from "../../../controller/PlanController";
 
 // function extractedDate() {
 //     function pad(s) {
@@ -23,7 +24,9 @@ export default class PlanPage extends React.Component{
             planActive: null,
             plans: [],
             details: []
-        }
+        },
+        file: null
+
     }
 
     constructor(props) {
@@ -36,6 +39,25 @@ export default class PlanPage extends React.Component{
         this.setDetail = this.setDetail.bind(this)
         this.getDetail = this.getDetail.bind(this)
 
+        this.onSubmit = this.onSubmit.bind(this)
+
+        this.setFile = this.setFile.bind(this)
+
+    }
+
+    setFile(value){
+        this.setState({
+            file: value.target.value
+        })
+    }
+
+    onSubmit(value){
+        debugger
+        PlanController.download({file: this.state.file} ).then(res=>{
+            console.log(res)
+        })
+
+        value.preventDefault()
     }
 
     addPlans(plans){
@@ -110,6 +132,13 @@ export default class PlanPage extends React.Component{
                         getDetail = {this.getDetail}
                         getProductActive={this.props.getProductActive}
                     />
+                </div>
+
+                <div className={style.addFile}>
+                    <form  onSubmit={this.onSubmit}>
+                        <input onChange={this.setFile} name="file" type="file"/>
+                        <input type="submit"/>
+                    </form>
                 </div>
             </div>
         )

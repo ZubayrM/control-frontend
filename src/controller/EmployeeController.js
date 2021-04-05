@@ -9,6 +9,10 @@ class EmployeeController{
         return axios.get(URL + BY_OPERATION + "/" + value)
     }
 
+    all(){
+        return axios.get(URL)
+    }
+
 }
 
 export default new EmployeeController

@@ -2,6 +2,7 @@ import axios from "axios";
 
 const URL = "http://localhost:8083/plan"
 const BY_DATE = "/byDate"
+const DOWNLOAD = "/download"
 
 class PlanController{
 
@@ -17,6 +18,18 @@ class PlanController{
 
     byId(value){
         return axios.get(URL + "/" + value)
+    }
+
+    download(value){
+        return axios.post(URL + DOWNLOAD,  {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                body:{
+                    file: value
+                }
+            }
+
+        })
     }
 
 }

@@ -1,20 +1,25 @@
 import React from 'react';
 import {Route} from "react-router-dom";
-import EmployeeList from "./Employee/EmployeeList";
 import General from "./General/General";
 import Statistics from "./Statistacs/Statistics";
 import PlanPage from "./Plan/PlanPage";
 import style from "./Main.module.css";
 import DetailPage from "./Details/DetailPage";
 import ProductPage from "./Product/ProductPage";
-import {getProducts} from "../Main/Plan/Product/PlanProductList"
+import PlanController from "../../controller/PlanController";
+import {EmployeePage} from "./Employee/EmployeePage";
 
 export default class Main extends React.Component{
 
     state = {
         employees: [],
         productActive: null,
-        products: []
+        products: [],
+        plan:{
+            planActive: null,
+            plans: [],
+            products: []
+        }
     }
 
     constructor(props) {
@@ -24,6 +29,18 @@ export default class Main extends React.Component{
         this.setProductActive = this.setProductActive.bind(this)
 
         this.getProducts = this.getProducts.bind(this)
+
+        this.handleGetPlans = this.handleGetPlans.bind(this)
+    }
+
+    handleGetPlans(){
+        PlanController.all().then(res=>{
+            this.setState({
+                plan:{
+                    plans: res.data
+                }
+            })
+        })
     }
 
 
@@ -46,10 +63,6 @@ export default class Main extends React.Component{
         this.setState({
             products: products
         })
-
-        // this.setState(state => {
-        //     return state.products.push(products)
-        // })
     }
 
 
@@ -78,7 +91,7 @@ export default class Main extends React.Component{
                     <Route path='/product' render={() => <ProductPage
                         getProductActive = {this.getProductActive}
                     />}/>
-                    <Route path='/employee' render={ () => <EmployeeList/>}/>
+                    <Route path='/employee' render={ () => <EmployeePage/>}/>
                     <Route path='/statistics' render={ () => <Statistics />}/>
                 </div>
             </main>

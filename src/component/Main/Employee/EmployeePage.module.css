@@ -1,0 +1,30 @@
+.window{
+
+    margin: 0 auto;
+
+    width: 300px;
+    height: 100px;
+    box-shadow: 0 0 2px black;
+
+    text-align: center;
+    margin: 10px;
+    position: absolute;
+
+    color: #32363A;
+    background-color: white;
+    overflow: hidden;
+    top: 0;
+    left: auto;
+    right: auto;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+
+.button:target{
+    opacity: 1;
+
+}
+
