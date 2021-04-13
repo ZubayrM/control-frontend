@@ -52,7 +52,6 @@ export default class PlanPage extends React.Component{
     }
 
     onSubmit(value){
-        debugger
         PlanController.download({file: this.state.file} ).then(res=>{
             console.log(res)
         })
@@ -73,14 +72,13 @@ export default class PlanPage extends React.Component{
 
     setPlanActive(value){
         this.setState({
-
             plan: {
                 planActive: value
             }
-
-
-
         })
+
+        //new
+        this.props.setPlanActive(value)
     }
 
     getPlanActive(){

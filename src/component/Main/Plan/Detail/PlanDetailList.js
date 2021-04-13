@@ -11,14 +11,12 @@ export default class PlanDetailList extends React.Component{
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(prevProps.getProductActive() +" = " + this.props.getProductActive())
-        if (prevProps.getProductActive() === this.props.getProductActive()){
+        if (prevProps.getProductActive() !== this.props.getProductActive()){
             DetailController.byProduct(this.props.getProductActive()).then(result =>{
                 this.setState({
                     details: result.data
                 })
             })
-            debugger
 
         }
 
@@ -32,7 +30,6 @@ export default class PlanDetailList extends React.Component{
         return(
             <div className={style.page}>
                 {this.state.details.map(d=> {
-                    debugger
                     return(
                         <NavLink to = {"/detail"}>
                             <PlanDetail {...d} />

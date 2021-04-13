@@ -11,10 +11,13 @@ export default class DetailPage extends React.Component{
         return(
             <div className={style.page}>
                 <div className={style.list}>
-                    <DetailList iaPlan = {this.props.iaPlan}/>
+                    <DetailList
+                        product = {this.props.productActive}
+                        setDetailActive = {this.props.setDetailActive}
+                    />
                 </div>
                 <div className={style.panel}>
-                    <PanelDetail />
+                    <PanelDetail detail = {this.props.detailActive}/>
                 </div>
 
             </div>

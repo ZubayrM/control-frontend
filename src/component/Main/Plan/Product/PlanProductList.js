@@ -50,7 +50,6 @@ export default class PlanProductList extends React.Component {
 
 
     render() {
-        debugger
         return(
             <div className={style.page}>
                 {this.state.products.map(p=> {

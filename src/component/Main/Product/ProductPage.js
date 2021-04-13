@@ -23,7 +23,6 @@ export default class ProductPage extends React.Component{
         this.getDetail = this.getDetail.bind(this)
         this.getDetails = this.getDetails.bind(this)
         this.getOperation = this.getOperation.bind(this)
-        this.handleGetOperation = this.handleGetOperation.bind(this)
         this.handleGetEmployees = this.handleGetEmployees.bind(this)
 
         this.getOperations = this.getOperations.bind(this)
@@ -32,12 +31,7 @@ export default class ProductPage extends React.Component{
     }
 
     componentDidMount() {
-        DetailController.byProduct(this.props.getProductActive()).then(result=>{
-            this.setState({
-                details: result.data
-            })
-        })
-        console.log(this.state)
+
     }
 
     handleClickDetail(value){
@@ -47,15 +41,6 @@ export default class ProductPage extends React.Component{
         })
     }
 
-    handleGetOperation(value){
-        debugger
-        OperationController.byDetail(value).then(result=>{
-            debugger
-            this.setState({
-                operations: result.data
-            })
-        })
-    }
 
     handleGetEmployees(value){
         EmployeeController.byOperation(value).then(result=>{
@@ -105,22 +90,8 @@ export default class ProductPage extends React.Component{
             <div className={style.form}>
                 <div className={style.list}>
                     <ProductList
-                        handleClickDetail = {this.handleClickDetail}
-                        getDetails = {this.getDetails}
-                        getProductActive = {this.props.getProductActive}
-                        setOperation = {this.handleGetOperation}
-                    />
-                </div>
-                <div className={style.panel}>
-                    <PanelProduct
-                        getDetail = {this.getDetail}
-                        getOperation = {this.getOperation}
-
-
-                        getDetails = {this.getDetails}
-                        getOperations = {this.getOperations}
-                        getEmployees = {this.getEmployees}
-                        getSize = {this.getSize}
+                        plan = {this.props.planActive}
+                        setProductActive = {this.props.setProductActive}
                     />
                 </div>
             </div>

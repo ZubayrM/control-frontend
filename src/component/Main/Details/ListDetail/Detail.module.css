@@ -6,30 +6,24 @@
     grid-area: s;
 }
 
-.list{
-    grid-area: l;
-    text-align: right;
-}
 
 .details{
-    height: 100%;
+    grid-area: l;
+    overflow: auto;
+    height: 90vh;
 }
 
 .detail{
     display: grid;
 
-    grid-template-columns: auto 80px;
+    grid-template-columns: 60vh;
+    grid-template-rows: auto;
     grid-template-areas:
-            "n l"
-            "s l";
-
-    /*border-radius: 10px;*/
-    /*border-color: slategrey;*/
-    /*border: solid;*/
-    /*border-width: 1px;*/
-
+            "n"
+            "s";
 
     font-size: 18px;
+    border-radius: 6px;
 
     background-color: white;
     color: rgb(81,92,102);
@@ -41,9 +35,6 @@
     text-decoration: none;
 }
 
-.panel{
-    margin: 10px;
-}
 
 .input{
     padding: 5px;
@@ -60,50 +51,16 @@
     border: aliceblue;
 }
 
-
-.button{
-    background-color: rgb(81,92,102);
-    border-radius: 0 8px 8px 0;
-    border: none;
-    font-size: 16px;
-    padding: 5px;
-    margin: 1px;
-    text-align: center;
-    line-height: inherit;
-    color: rgb(205,216,228);
-    user-select: none;
-    outline: none;
-    display: inline-block;
-    height: 20px;
-    align-items: center;
+.details::-webkit-scrollbar {
+    width: 6px;
 }
 
-.button:after{
-
-}
-.button:hover:after{
-
+.details::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+    border-radius: 3px;
 }
 
-.select1{
-    width: 350px;
-    height: 50px;
-    font-size: 24px;
-}
-
-.select2{
-    width: 350px;
-    height: 30px;
-    font-size: 18px;
-}
-
-.table{
-    width: 350px;
-    background-color: rgb(81,92,102) ;
-    color: white;
-    border-radius: 10px;
-    padding: 10px;
-
-    border-spacing: 0;
-    empty-cells: hide;
+.details::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.5);
 }

@@ -2,14 +2,32 @@ import * as React from "react";
 import Detail from "./Detail";
 import style from "./Detail.module.css"
 import DetailController from "../../../../controller/DetailController";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
+import OperationController from "../../../../controller/OperationController";
 
 
 export default class DetailList extends React.Component{
 
     state = {
-        details: [],
-        name: ''
+        details: []
+    }
+
+    constructor(props) {
+        super(props);
+
+        this.handleClickDetail = this.handleClickDetail.bind(this)
+    }
+
+    componentDidMount() {
+        DetailController.byProduct(this.props.product).then(res=>{
+            this.setState({
+                details: res.data
+            })
+        })
+    }
+
+    handleClickDetail(value){
+        this.props.setDetailActive(value)
     }
 
     handleChange = value => {
@@ -18,9 +36,8 @@ export default class DetailList extends React.Component{
             name: value.target.value
         })
     }
-    handleSubmit = () =>{
 
-        debugger
+    handleSubmit = () =>{
         const detail = {
             value: this.state.name
         };
@@ -28,53 +45,21 @@ export default class DetailList extends React.Component{
                 this.setState({details: res.data})})
     }
 
+
     render() {
-        debugger
         return(
             <dev>
-                <div>
-                    <select className={style.select1}>
-                        <option>План: {this.props.active}</option>
-                    </select>
+                <div className={style.details}>
+                    {this.state.details.map(d=>{
+                        return(
+                            <div className={style.detail}>
+                                <NavLink to={"/detail/" + d.cipher} onClick = {() => this.handleClickDetail(d.cipher)} >
+                                    <Detail name = {d.name}  cipher = {d.cipher}/>
+                                </NavLink>
+                            </div>
+                        )
+                    })}
                 </div>
-                <div>
-                    <select className={style.select2}>
-                        <option>Изделие: </option>
-                    </select>
-                </div>
-
-                <div className={style.panel}>
-                    <input className={style.input} type='text' name='name' onChange={this.handleChange}/>
-                    <Link to={"/detail"}>
-                        <a className={style.button} onClick={this.handleSubmit}>поиск</a>
-                    </Link>
-                </div>
-
-                <div>
-                    <table className={style.table}>
-                        <tr>
-                            <th>Наименование</th>
-                            <th>Обозначение</th>
-                            <th>Кол-во</th>
-                        </tr>
-                        <tr>
-                            <td><a href='/'>Имя</a></td>
-                            <td><a href='/'>Шифр</a></td>
-                            <td><a href='/'>27</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href='/'>Имя</a></td>
-                            <td><a href='/'>Шифр</a></td>
-                            <td><a href='/'>27</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href='/'>Имя</a></td>
-                            <td><a href='/'>Шифр</a></td>
-                            <td><a href='/'>27</a></td>
-                        </tr>
-                    </table>
-                </div>
-                { this.state.details.map(d => <Detail name={d.name} cipher={d.cipher} list={d.list} />)}
             </dev>
         )
     }

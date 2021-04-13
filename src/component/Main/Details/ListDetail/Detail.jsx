@@ -6,19 +6,14 @@ const Detail = (props) => {
 
 
     return (
-        <div  className={style.details}>
+        <div >
             <NavLink to= {"/detail/" + props.cipher}>
-                <div className={style.detail}>
                     <div className={style.name}>
                         <span >{props.name}</span>
                     </div>
                     <div className={style.cipher}>
                         <span >{props.cipher}</span>
                     </div>
-                    <div className={style.list}>
-                        <span >{props.list.length} шт.</span>
-                    </div>
-                </div>
             </NavLink>
         </div>
     )

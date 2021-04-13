@@ -2,6 +2,7 @@ import * as React from "react";
 import style from './ProductList.module.css'
 import {NavLink} from "react-router-dom";
 import PlanController from "../../../../controller/PlanController";
+import ProductController from "../../../../controller/ProductController";
 
 export default class ProductList extends React.Component{
 
@@ -13,37 +14,35 @@ export default class ProductList extends React.Component{
 
     constructor(props) {
         super(props);
-
     }
 
    componentDidMount() {
-        PlanController.all().then(result=>{
+        PlanController.byId(this.props.plan).then(res=>{
             this.setState({
-                plans: result.data
+                products: res.data.products
             })
         })
    }
 
+   handleClickProduct(value){
+        this.props.setProductActive(value)
+   }
+
+
+
+
+
 
     render() {
-        debugger
+
         return(
             <div className={style.products}>
-                <select className={style.select}>
-                    {this.state.products.map(p=>{
-                        return(
-                            <option>{p.name + " " + p.cipher}</option>
-                        )
-                    })}
-
-                </select>
                 <div className={style.list}>
                     <ul>
-                        {this.props.getDetails().map(d=>{
-                            debugger
+                        {this.state.products.map(d=>{
                             return(
                                 <li className={style.detail}>
-                                    <NavLink to={"/product/" + d.cipher} onClick={() => this.props.setOperation(d.cipher)}>
+                                    <NavLink to={"/product/" + d.cipher} onClick={() => this.handleClickProduct(d.id)}>
                                         <label>{d.name}</label>
                                         <label>{d.cipher}</label>
                                     </NavLink>

@@ -53,7 +53,7 @@ class DetailController{
         return axios.delete(URL + "/" + {value})
     }
 
-    getInfo(value){
+    byId(value){
         return axios.get(URL + "/" + {value})
     }
 

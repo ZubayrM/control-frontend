@@ -13,12 +13,14 @@ export default class Main extends React.Component{
 
     state = {
         employees: [],
+        detailActive: null,
         productActive: null,
+        planActive: null,
         products: [],
         plan:{
-            planActive: null,
             plans: [],
-            products: []
+            products: [],
+            details: [],
         }
     }
 
@@ -31,6 +33,22 @@ export default class Main extends React.Component{
         this.getProducts = this.getProducts.bind(this)
 
         this.handleGetPlans = this.handleGetPlans.bind(this)
+
+        this.setPlaneActive = this.setPlaneActive.bind(this)
+        this.setDetailActive = this.setDetailActive.bind(this)
+    }
+
+    setDetailActive(value){
+        console.log(value)
+        this.setState({
+            detailActive: value
+        })
+    }
+
+    setPlaneActive(value){
+        this.setState({
+            planActive: value
+        })
     }
 
     handleGetPlans(){
@@ -51,11 +69,11 @@ export default class Main extends React.Component{
     getProductActive(){
         return this.state.productActive
     }
+
     setProductActive(value){
         this.setState({
             productActive: value
         })
-        debugger
     }
 
 
@@ -66,11 +84,6 @@ export default class Main extends React.Component{
     }
 
 
-    updateIdPlan(value){
-        this.setState({
-            idPlan: value
-        })
-    }
 
 
     render() {
@@ -84,12 +97,18 @@ export default class Main extends React.Component{
                         plan = {this.state.plan}
                         getProductActive = {this.getProductActive}
                         setProductActive = {this.setProductActive}
+
+                        setPlanActive = {this.setPlaneActive}
                     />}/>
                     <Route path='/detail' render={() => <DetailPage
-                        iaPlan = {this.updateIdPlan}
+                        productActive = {this.state.productActive}
+                        detailActive = {this.state.detailActive}
+                        setDetailActive = {this.setDetailActive}
                     />}/>
                     <Route path='/product' render={() => <ProductPage
-                        getProductActive = {this.getProductActive}
+                        planActive = {this.state.planActive}
+                        setProductActive = {this.setProductActive}
+
                     />}/>
                     <Route path='/employee' render={ () => <EmployeePage/>}/>
                     <Route path='/statistics' render={ () => <Statistics />}/>

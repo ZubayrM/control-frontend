@@ -21,12 +21,9 @@ class PlanController{
     }
 
     download(value){
-        return axios.post(URL + DOWNLOAD,  {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-                body:{
-                    file: value
-                }
+        return axios.post(URL + DOWNLOAD, {value}, {
+            'headers': {
+                'Content-Type': 'multipart/form-data'
             }
 
         })
